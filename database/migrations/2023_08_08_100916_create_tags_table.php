@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('tags', function (Blueprint $table) {
             $table->id();
-            $table->enum('name', 'Romance', 'Drama', 'Comedy');
+            $table->enum('genre', ['Romance', 'Drama', 'Comedy']);
             $table->timestamps();
         });
     }
