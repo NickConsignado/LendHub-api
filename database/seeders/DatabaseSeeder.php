@@ -7,6 +7,8 @@ namespace Database\Seeders;
 use App\Models\Admin;
 use App\Models\Book;
 use App\Models\Borrowing;
+use App\Models\Description;
+use App\Models\Tag;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -26,8 +28,16 @@ class DatabaseSeeder extends Seeder
         Admin::factory(1)
             ->create();
 
-        Book::factory(3)
+        Book::factory(4)
+            ->hasBorrowings(2)
             ->create();
+
+        Tag::factory(1)
+            ->create();
+
+        Description::factory(2)
+            ->create();
+
 
         // Book::factory(3)
         // ->hasDescriptions(1)
