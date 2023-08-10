@@ -10,10 +10,14 @@ class Book extends Model
     use HasFactory;
     public function tag()
     {
-        return $this->many(Tag::class);
+        return $this->belongsTo(Tag::class);
     }
     public function description()
     {
-        return $this->many(Description::class);
+        return $this->belongsTo(Description::class);
+    }
+    public function borrowings()
+    {
+        return $this->hasMany(Borrowing::class);
     }
 }

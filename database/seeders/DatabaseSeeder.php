@@ -6,8 +6,7 @@ namespace Database\Seeders;
 
 use App\Models\Admin;
 use App\Models\Book;
-use App\Models\Description;
-use App\Models\Tag;
+use App\Models\Borrowing;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -23,12 +22,19 @@ class DatabaseSeeder extends Seeder
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',
         // ]);
-        Admin::factory(1)->create();
 
-        
+        Admin::factory(1)
+            ->create();
 
+        Book::factory(3)
+            ->create();
+
+        // Book::factory(3)
+        // ->hasDescriptions(1)
+        // ->create();
+
+        // Borrowing::factory(1)
+        //     ->hasBooks(1)
+        //     ->create();
     }
 }
-
-
-    

@@ -23,7 +23,7 @@ class DescriptionFactory extends Factory
             'literary_awards' => fake()->text(45),
             'series' => fake()->text(25),
             'setting' => fake()->text(10),
-            'characters' => fake()->name(10),
+            'characters' => fake()->name(10)
         ];
     }
 }

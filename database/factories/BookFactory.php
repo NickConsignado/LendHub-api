@@ -19,9 +19,9 @@ class BookFactory extends Factory
     public function definition(): array
     {
         return [
-            'name' => fake()->words(2),
-            'author' => fake()->words(2),
-            'stocks' => fake()->words(),
+            'name' => fake()->words(2,true),
+            'author' => fake()->name(),
+            'stocks' => fake()->randomDigit(),
             'tag_id' => Tag::factory(),
             'description_id' => Description::factory()
         ];
