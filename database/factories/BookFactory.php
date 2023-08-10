@@ -21,7 +21,7 @@ class BookFactory extends Factory
         return [
             'name' => fake()->words(2),
             'author' => fake()->words(2),
-            'stocks' => fake()->randomDigit(),
+            'stocks' => fake()->words(),
             'tag_id' => Tag::factory(),
             'description_id' => Description::factory()
         ];

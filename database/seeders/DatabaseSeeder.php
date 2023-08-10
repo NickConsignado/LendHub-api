@@ -25,15 +25,7 @@ class DatabaseSeeder extends Seeder
         // ]);
         Admin::factory(1)->create();
 
-        Book::factory(5)
-            // ->hasBatches(2)
-            ->has(Tag::factory(1))
-            ->create();
-
-  
-    Book::factory(5)
-    ->has(Description::factory(1))
-        ->create();
+        
 
     }
 }
