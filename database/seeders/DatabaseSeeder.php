@@ -32,7 +32,7 @@ class DatabaseSeeder extends Seeder
             ->hasBorrowings(2)
             ->create();
 
-        Tag::factory(1)
+        Tag::factory()
             ->create();
 
         Description::factory(2)

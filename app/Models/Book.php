@@ -8,6 +8,15 @@ use Illuminate\Database\Eloquent\Model;
 class Book extends Model
 {
     use HasFactory;
+
+    protected $fillable =[
+        'name',
+        'author',
+        'stocks',
+        'tag_id',
+        'description_id'
+    ];
+
     public function tag()
     {
         return $this->belongsTo(Tag::class);

@@ -16,7 +16,7 @@ class DescriptionResource extends JsonResource
     {
         return [
             'id' => $this->id,
-            'original_title' => $this->original_title,
+            'originalTitle' => $this->original_title,
             'author' => $this->author,
             'backgroundInfo' => $this->background_info,
             'literaryAwards' => $this->literary_awards,
