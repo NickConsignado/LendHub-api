@@ -2,7 +2,7 @@
 
 namespace App\Http\Requests;
 
-use Carbon\Carbon;
+
 use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\Exceptions\HttpResponseException;
@@ -25,12 +25,12 @@ class BookDetailStoreRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'literaryAwards' => 'required',
-            'setting' => 'required',
-            'characters' => 'required',
-            'pages' => 'required',
-            'published' => 'date_format:m-d-Y',
-            'publisher' => 'required',
+            'literaryAwards' => 'required|string',
+            'setting' => 'required|string',
+            'characters' => 'required|string',
+            'pages' => 'required|integer',
+            'published' => 'nullable|date',
+            'publisher' => 'required|string',
             'bookId' => 'required|exists:book,id',
         ];
     }

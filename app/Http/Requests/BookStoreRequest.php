@@ -28,7 +28,7 @@ class BookStoreRequest extends FormRequest
             'author' => 'required',
             'subtitle' => 'required',
             'stocks' => 'required',
-            'genre' => 'required',
+            'genre' => 'required|in:Romance,Drama,Comedy,Adventure,Horror',
             'thumbnail' => 'required',
 
         ];

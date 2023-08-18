@@ -6,7 +6,7 @@ use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\Exceptions\HttpResponseException;
 
-class BookDetailUpdateRequest extends FormRequest
+class BorrowingUpdateRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -23,14 +23,10 @@ class BookDetailUpdateRequest extends FormRequest
      */
     public function rules(): array
     {
-        // date format request -> 2022-04-19 12:00:01
         return [
-            'literaryAwards' => 'sometimes|required|string',
-            'setting' => 'sometimes|required|string',
-            'characters' => 'sometimes|required|string',
-            'pages' => 'sometimes|required|integer',
-            'published' => 'sometimes|nullable|date',
-            'publisher' => 'sometimes|required|string',
+            'borrowedBy' => 'sometimes|required',
+            'borrowedDate' => 'sometimes|nullable|date',
+            'returnDate' => 'sometimes|nullable|date',
             'bookId' => 'sometimes|required|exists:book,id',
         ];
     }

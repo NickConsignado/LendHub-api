@@ -2,7 +2,9 @@
 
 namespace App\Http\Requests;
 
+use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Http\Exceptions\HttpResponseException;
 
 class BookUpdateRequest extends FormRequest
 {
@@ -29,5 +31,13 @@ class BookUpdateRequest extends FormRequest
             'genre' => 'sometimes|required',
             'thumbnail' => 'sometimes|required',
         ];
+    }
+    protected function failedValidation(Validator $validator)
+    {
+        throw new HttpResponseException(response()->json([
+            'success' => false,
+            'message' => 'Validation errors',
+            'data' => $validator->errors(),
+        ]));
     }
 }

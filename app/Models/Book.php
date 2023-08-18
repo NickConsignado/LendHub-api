@@ -17,10 +17,8 @@ class Book extends Model
         'thumbnail',
 
     ];
-    public function book_detail()
-    {
-        return $this->belongsTo(Book_Detail::class);
-    }
+
+
     public function borrowings()
     {
         return $this->hasMany(Borrowing::class);

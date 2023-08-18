@@ -17,14 +17,14 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
 
-        User::factory(5)
+        User::factory()
             ->create();
 
-        Book::factory(4)
+        Book::factory(5)
             ->hasBorrowings(2)
             ->create();
 
-        BookDetail::factory()
+        BookDetail::factory(5)
             ->create();
     }
 }

@@ -12,11 +12,12 @@ class Borrowing extends Model
         'borrowed_by', 
         'borrowed_date', 
         'return_date', 
+        'book_id',
 
     ];
     public function books()
     {
-        return $this->hasMany(Book::class);
+        return $this->belongsTo(Book::class);
     }
     
 }

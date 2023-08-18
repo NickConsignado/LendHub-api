@@ -15,10 +15,12 @@ class BookDetail extends Model
         'pages',
         'published',
         'publisher',
+        'book_id'
 
     ];
     public function book()
     {
         return $this->belongsTo(Book::class);
+        //return $this->belongsTo('App\Models\Book', 'id', 'book_id');
     }
 }

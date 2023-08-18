@@ -17,7 +17,7 @@ return new class extends Migration
             $table->text('setting');
             $table->text('characters');
             $table->integer('pages');
-            $table->timestamp('published')->nullable();
+            $table->date('published')->nullable();
             $table->string('publisher');
             $table->unsignedBigInteger('book_id');
 
