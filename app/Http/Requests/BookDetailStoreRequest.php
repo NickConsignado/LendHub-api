@@ -2,11 +2,12 @@
 
 namespace App\Http\Requests;
 
+use Carbon\Carbon;
 use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\Exceptions\HttpResponseException;
 
-class DescriptionStoreRequest extends FormRequest
+class BookDetailStoreRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,13 +25,13 @@ class DescriptionStoreRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'originalTitle' => 'required',
-            'author' => 'required',
-            'backgroundInfo' => 'required',
             'literaryAwards' => 'required',
-            'series' => 'required',
             'setting' => 'required',
             'characters' => 'required',
+            'pages' => 'required',
+            'published' => 'date_format:m-d-Y',
+            'publisher' => 'required',
+            'bookId' => 'required|exists:book,id',
         ];
     }
     protected function failedValidation(Validator $validator)

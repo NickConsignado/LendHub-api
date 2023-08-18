@@ -18,9 +18,9 @@ class BorrowingFactory extends Factory
     public function definition(): array
     {
         return [
-            'borrower_name' => fake()->words(2, true),
+            'borrowed_by' => fake()->words(2, true),
             'borrowed_date' => fake()->dateTimeThisYear(),
-            'returned_date' => fake()->dateTimeThisMonth(),
+            'return_date' => fake()->dateTimeThisMonth(),
             'book_id' => Book::factory()
         ];
     }

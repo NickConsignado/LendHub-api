@@ -1,10 +1,9 @@
 <?php
 
-use App\Http\Controllers\Api\AdminController;
 use App\Http\Controllers\Api\BookController;
+use App\Http\Controllers\Api\BookDetailController;
 use App\Http\Controllers\Api\BorrowingController;
-use App\Http\Controllers\Api\DescriptionController;
-use App\Http\Controllers\Api\TagController;
+use App\Http\Controllers\Api\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -30,9 +29,8 @@ Route::get('/sample', function () {
 });
 
 Route::group(['prefix' => 'v1'], function () {
-    Route::apiResource('admins', AdminController::class);
-    Route::apiResource('tags', TagController::class);
-    Route::apiResource('descriptions', DescriptionController::class);
+    Route::apiResource('admins', UserController::class);
     Route::apiResource('books', BookController::class);
+    Route::apiResource('book-details', BookDetailController::class);
     Route::apiResource('borrowings', BorrowingController::class);
 });

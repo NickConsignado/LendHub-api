@@ -13,13 +13,13 @@ return new class extends Migration
     {
         Schema::create('borrowings', function (Blueprint $table) {
             $table->id();
-            $table->string('borrower_name');
-            $table->timestamp('borrowed_date')->nullable();
-            $table->timestamp('returned_date')->nullable();
-            $table->timestamps();
-            $table->unsignedBigInteger('book_id');
 
+            $table->string('borrowed_by');
+            $table->timestamp('borrowed_date')->nullable();
+            $table->timestamp('return_date')->nullable();
+            $table->unsignedBigInteger('book_id');
             $table->foreign('book_id')->references('id')->on('books');
+            $table->timestamps();
         });
     }
 

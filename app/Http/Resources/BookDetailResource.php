@@ -2,10 +2,11 @@
 
 namespace App\Http\Resources;
 
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class BorrowingResource extends JsonResource
+class BookDetailResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -16,9 +17,12 @@ class BorrowingResource extends JsonResource
     {
         return [
             'id' => $this->id,
-            'borrowedBy' => $this->borrowed_by,
-            'borrowedDate' => $this->borrowed_date,
-            'returnDate' => $this->return_date,
+            'literaryAwards', $this->literary_awards,
+            'setting', $this->setting,
+            'characters', $this->characters,
+            'pages', $this->pages,
+            'published', Carbon::parse($this->published)->format('M d, Y'),
+            'publisher', $this->publisher,
             'bookId' => $this->book_id,
         ];
     }

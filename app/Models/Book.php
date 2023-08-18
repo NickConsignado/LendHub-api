@@ -8,22 +8,18 @@ use Illuminate\Database\Eloquent\Model;
 class Book extends Model
 {
     use HasFactory;
-
-    protected $fillable =[
-        'name',
+    protected $fillable = [
+        'title',
         'author',
+        'subtitle',
         'stocks',
-        'tag_id',
-        'description_id'
-    ];
+        'genre',
+        'thumbnail',
 
-    public function tag()
+    ];
+    public function book_detail()
     {
-        return $this->belongsTo(Tag::class);
-    }
-    public function description()
-    {
-        return $this->belongsTo(Description::class);
+        return $this->belongsTo(Book_Detail::class);
     }
     public function borrowings()
     {

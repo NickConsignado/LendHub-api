@@ -2,8 +2,6 @@
 
 namespace Database\Factories;
 
-use App\Models\Description;
-use App\Models\Tag;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -19,11 +17,12 @@ class BookFactory extends Factory
     public function definition(): array
     {
         return [
-            'name' => fake()->words(2,true),
+            'title' => fake()->name(),
             'author' => fake()->name(),
+            'subtitle' => fake()->words(2, true),
             'stocks' => fake()->randomDigit(),
-            'tag_id' => Tag::factory(),
-            'description_id' => Description::factory()
+            'genre' => fake()->randomElement(['Romance', 'Drama', 'Comedy', 'adventure', 'horror']),
+            'thumbnail' => ('https://source.unsplash.com/random/800x600')
         ];
     }
 }

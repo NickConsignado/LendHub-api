@@ -6,7 +6,7 @@ use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\Exceptions\HttpResponseException;
 
-class BorrowingUpdateRequest extends FormRequest
+class BookDetailUpdateRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,10 +24,13 @@ class BorrowingUpdateRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'borrowerName' => 'sometimes|required',
-            'borrowedDate' => 'sometimes|date_format:m-d-Y',
-            'returnedDate' => 'sometimes|date_format:m-d-Y',
-            'bookId' => 'sometimes|required|exists:books,id'
+            'literaryAwards' => 'sometimes|required',
+            'setting' => 'sometimes|required',
+            'characters' => 'sometimes|required',
+            'pages' => 'sometimes|required',
+            'published' => 'sometimes|date_format:m-d-Y',
+            'publisher' => 'sometimes|required',
+            'bookId' => 'sometimes|required|exists:book,id',
         ];
     }
     protected function failedValidation(Validator $validator)

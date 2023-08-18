@@ -26,11 +26,13 @@ class BookController extends Controller
     {
         return BookResource::make(
             Book::create([
-                'name' => $request->name,
+                'title' => $request->title,
                 'author' => $request->author,
+                'subtitle' => $request->subtitle,
                 'stocks' => $request->stocks,
-                'tag_id' => $request->tagId,
-                'description_id' => $request->descriptionId,
+                'genre' => $request->genre,
+                'thumbnail' => $request->thumbnail,
+
             ])
         );
     }
@@ -40,32 +42,28 @@ class BookController extends Controller
      */
     public function show(Book $book)
     {
-        return BookResource::make($book);
+        return Book::make($book);
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
     public function update(BookUpdateRequest $request, Book $book)
     {
-        if (isset($request->name)) {
-            $book->name = $request->name;
+        if (isset($request->title)) {
+            $book->title = $request->title;
         }
-
         if (isset($request->author)) {
             $book->author = $request->author;
         }
-
+        if (isset($request->subtitle)) {
+            $book->subtitle = $request->subtitle;
+        }
         if (isset($request->stocks)) {
             $book->stocks = $request->stocks;
         }
-
-        if (isset($request->tagId)) {
-            $book->tag_id = $request->tagId;
+        if (isset($request->genre)) {
+            $book->genre = $request->genre;
         }
-
-        if (isset($request->descriptionId)) {
-            $book->description_id = $request->descriptionId;
+        if (isset($request->thumbnail)) {
+            $book->thumbnail = $request->thumbnail;
         }
 
         $book->save();
@@ -76,17 +74,8 @@ class BookController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy($id)
+    public function destroy(string $id)
     {
-
-        $book = Book::findOrFail($id);
-        
-        $book->borrowings()->delete();
-
-        $book->delete();
-        return response()->json([
-            'success' => true,
-            'message' => 'Successfully Deleted'
-        ]);
+        //
     }
 }

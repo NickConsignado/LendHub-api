@@ -13,15 +13,13 @@ return new class extends Migration
     {
         Schema::create('books', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+            $table->string('title');
             $table->string('author');
+            $table->text('subtitle');
             $table->integer('stocks');
-            $table->unsignedBigInteger('tag_id');
-            $table->unsignedBigInteger('description_id');
-            $table->timestamps();
-
-            $table->foreign('tag_id')->references('id')->on('tags');
-            $table->foreign('description_id')->references('id')->on('descriptions');
+            $table->enum('genre', ['Romance', 'Drama', 'Comedy', 'adventure', 'horror']);
+            $table->text('thumbnail', 'https://tse2.mm.bing.net/th?id=OIP.HSzR1kIUtC73IjzczBgE2AAAAA&pid=Api&P=0&h=180');
+            $table->timestamps('');
         });
     }
 

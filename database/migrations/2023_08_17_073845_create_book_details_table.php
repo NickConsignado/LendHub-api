@@ -11,15 +11,17 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('descriptions', function (Blueprint $table) {
+        Schema::create('book_details', function (Blueprint $table) {
             $table->id();
-            $table->string('original_title');
-            $table->string('author');
-            $table->text('background_info');
             $table->text('literary_awards');
-            $table->string('series');
-            $table->string('setting');
-            $table->string('characters');
+            $table->text('setting');
+            $table->text('characters');
+            $table->integer('pages');
+            $table->timestamp('published')->nullable();
+            $table->string('publisher');
+            $table->unsignedBigInteger('book_id');
+
+            $table->foreign('book_id')->references('id')->on('books');
             $table->timestamps();
         });
     }
@@ -29,6 +31,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('descriptions');
+        Schema::dropIfExists('book_details');
     }
 };

@@ -8,15 +8,15 @@ use Illuminate\Database\Eloquent\Model;
 class Borrowing extends Model
 {
     use HasFactory;
-
     protected $fillable = [
-        'borrower_name',
-        'borrowed_date',
-        'returned_date',
-        'book_id'
+        'borrowed_by', 
+        'borrowed_date', 
+        'return_date', 
+
     ];
     public function books()
     {
         return $this->hasMany(Book::class);
     }
+    
 }

@@ -24,11 +24,13 @@ class BookStoreRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => 'required',
+            'title' => 'required',
             'author' => 'required',
+            'subtitle' => 'required',
             'stocks' => 'required',
-            'tagId' => 'required|exists:tag,id',
-            'descriptionId' => 'required|exists:description,id',
+            'genre' => 'required',
+            'thumbnail' => 'required',
+
         ];
     }
     protected function failedValidation(Validator $validator)

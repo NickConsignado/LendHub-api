@@ -5,17 +5,20 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Tag extends Model
-
+class BookDetail extends Model
 {
     use HasFactory;
-
     protected $fillable = [
-        'genre'
-    ];
+        'literary_awards',
+        'setting',
+        'characters',
+        'pages',
+        'published',
+        'publisher',
 
+    ];
     public function book()
     {
-        return $this->hasOne(Book::class);
+        return $this->belongsTo(Book::class);
     }
 }

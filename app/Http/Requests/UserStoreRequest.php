@@ -6,7 +6,7 @@ use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\Exceptions\HttpResponseException;
 
-class TagUpdateRequest extends FormRequest
+class UserStoreRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,7 +24,9 @@ class TagUpdateRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'genre' => 'sometimes|required|in:romance,drama,comedy',
+            'name' => 'required',
+            'email' => 'required|unique:users|email:rfc',
+            'password' => 'required|min:8'
         ];
     }
     protected function failedValidation(Validator $validator)

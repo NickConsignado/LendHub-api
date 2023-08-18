@@ -24,10 +24,7 @@ class BorrowingStoreRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'borrowerName' => 'required',
-            'borrowedDate' => 'date_format:m-d-Y',
-            'returnedDate' => 'date_format:m-d-Y',
-            'bookId' => 'required|exists:books,id'
+            //
         ];
     }
     protected function failedValidation(Validator $validator)
