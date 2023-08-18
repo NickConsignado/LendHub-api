@@ -17,12 +17,12 @@ class BookDetailResource extends JsonResource
     {
         return [
             'id' => $this->id,
-            'literaryAwards', $this->literary_awards,
-            'setting', $this->setting,
-            'characters', $this->characters,
-            'pages', $this->pages,
-            'published', Carbon::parse($this->published)->format('M d, Y'),
-            'publisher', $this->publisher,
+            'literaryAwards' => $this->literary_awards,
+            'setting'=> $this->setting,
+            'characters'=> $this->characters,
+            'pages'=> $this->pages,
+            'published'=> Carbon::parse($this->published)->format('M d, Y'),
+            'publisher'=> $this->publisher,
             'bookId' => $this->book_id,
         ];
     }

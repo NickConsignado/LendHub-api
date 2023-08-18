@@ -35,27 +35,26 @@ class UserController extends Controller
      */
     public function show(User $user)
     {
-        return User::make($user);
+        return UserResource::make($user);
     }
 
 
     public function update(UserUpdateRequest $request, User $user)
-    { {
-            if (isset($request->name)) {
-                $user->name = $request->name;
-            }
-            if (isset($request->email)) {
-                $user->email = $request->email;
-            }
-
-            if (isset($request->password)) {
-                $user->password = $request->password;
-            }
-
-            $user->save();
-
-            return UserResource::make($user);
+    {
+        if (isset($request->name)) {
+            $user->name = $request->name;
         }
+        if (isset($request->email)) {
+            $user->email = $request->email;
+        }
+
+        if (isset($request->password)) {
+            $user->password = $request->password;
+        }
+
+        $user->save();
+
+        return UserResource::make($user);
     }
 
     /**

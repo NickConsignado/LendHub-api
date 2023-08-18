@@ -22,16 +22,15 @@ class BookDetailController extends Controller
     {
         return BookDetailResource::make(
             BookDetail::create([
-            'literary_awards' =>  $request-> literaryAwards,
-            'setting' =>  $request->setting,
-            'characters' =>  $request->characters,
-            'pages' =>  $request->pages,
-            'published' =>  $request->published,
-            'publisher' =>  $request->publisher,
-            'book_id' =>  $request->bookId,
+                'literary_awards' =>  $request->literaryAwards,
+                'setting' =>  $request->setting,
+                'characters' =>  $request->characters,
+                'pages' =>  $request->pages,
+                'published' =>  $request->published,
+                'publisher' =>  $request->publisher,
+                'book_id' =>  $request->bookId,
             ])
         );
-        
     }
 
     /**

@@ -29,7 +29,7 @@ Route::get('/sample', function () {
 });
 
 Route::group(['prefix' => 'v1'], function () {
-    Route::apiResource('admins', UserController::class);
+    Route::apiResource('users', UserController::class);
     Route::apiResource('books', BookController::class);
     Route::apiResource('book-details', BookDetailController::class);
     Route::apiResource('borrowings', BorrowingController::class);
