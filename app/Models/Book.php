@@ -16,11 +16,16 @@ class Book extends Model
         'genre',
         'thumbnail',
 
+
     ];
 
 
     public function borrowings()
     {
         return $this->hasMany(Borrowing::class);
+    }
+    public function bookDetail()
+    {
+        return $this->hasOne(BookDetail::class);
     }
 }

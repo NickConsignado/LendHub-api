@@ -31,7 +31,7 @@ class BookDetailStoreRequest extends FormRequest
             'pages' => 'required|integer',
             'published' => 'nullable|date',
             'publisher' => 'required|string',
-            'bookId' => 'required|exists:book,id',
+            'bookId' => 'required|exists:books,id',
         ];
     }
     protected function failedValidation(Validator $validator)

@@ -27,7 +27,7 @@ class BorrowingStoreRequest extends FormRequest
             'borrowedBy' => 'required',
             'borrowedDate' => 'nullable|date',
             'returnDate' => 'nullable|date',
-            'bookid' => 'required|exists:book,id',
+            'bookId' => 'required|exists:books,id',
         ];
     }
     protected function failedValidation(Validator $validator)
