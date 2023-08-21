@@ -23,6 +23,7 @@ class BookResource extends JsonResource
             'stocks' => $this->stocks,
             'genre' => $this->genre,
             'thumbnail' => $this->thumbnail,
+            'bookDetail' => $this->bookDetail,
         ];
     }
 }

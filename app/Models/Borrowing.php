@@ -9,7 +9,7 @@ class Borrowing extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'borrowed_by', 
+        'borrowed_by',  
         'borrowed_date', 
         'return_date', 
         'book_id',
