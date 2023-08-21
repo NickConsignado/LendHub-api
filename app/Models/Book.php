@@ -14,7 +14,7 @@ class Book extends Model
         'subtitle',
         'stocks',
         'genre',
-        'thumbnail',
+        'image_url',
 
 
     ];

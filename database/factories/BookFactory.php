@@ -22,7 +22,7 @@ class BookFactory extends Factory
             'subtitle' => fake()->words(2, true),
             'stocks' => fake()->randomDigit(),
             'genre' => fake()->randomElement(['Romance', 'Drama', 'Comedy', 'adventure', 'horror']),
-            'thumbnail' => ('https://source.unsplash.com/random/800x600')
+            'image_url' => fake()->imageUrl(640, 480),
         ];
     }
 }

@@ -18,7 +18,7 @@ return new class extends Migration
             $table->text('subtitle');
             $table->integer('stocks');
             $table->enum('genre', ['Romance', 'Drama', 'Comedy', 'adventure', 'horror']);
-            $table->text('thumbnail', 'https://tse2.mm.bing.net/th?id=OIP.HSzR1kIUtC73IjzczBgE2AAAAA&pid=Api&P=0&h=180');
+            $table->text('image_url')->nullable();
             $table->timestamps('');
         });
     }

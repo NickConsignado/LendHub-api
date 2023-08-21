@@ -22,8 +22,8 @@ class BookResource extends JsonResource
             'subtitle' => $this->subtitle,
             'stocks' => $this->stocks,
             'genre' => $this->genre,
-            'thumbnail' => $this->thumbnail,
-            'bookDetail' => $this->bookDetail,
+            'imageUrl' => $this->image_url,
+            'bookDetail' => BookDetailResource::collection($this->whenLoaded('bookDetail')),
         ];
     }
 }

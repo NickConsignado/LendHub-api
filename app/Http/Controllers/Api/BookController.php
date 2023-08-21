@@ -14,9 +14,15 @@ class BookController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        return BookResource::collection(Book::all());
+        $query = Book::query();
+
+        if (isset($request->genre)) {
+            $query->where('category', $request->genre);
+        }
+
+        return BookResource::collection($query->with('bookDetail')->get());
     }
 
     /**
@@ -24,25 +30,33 @@ class BookController extends Controller
      */
     public function store(BookStoreRequest $request)
     {
-        return BookResource::make(
-            Book::create([
-                'title' => $request->title,
-                'author' => $request->author,
-                'subtitle' => $request->subtitle,
-                'stocks' => $request->stocks,
-                'genre' => $request->genre,
-                'thumbnail' => $request->thumbnail,
 
-            ])
-        );
+        $book = Book::create([
+            'title' => $request->title,
+            'author' => $request->author,
+            'subtitle' => $request->subtitle,
+            'stocks' => $request->stocks,
+            'genre' => $request->genre,
+        ]);
+
+        if ($request->hasFile('thumbnail')) {
+            $file = $request->file('thumbnail');
+
+            $fileName = time() . '-' . $file->getClientOriginalFilename();
+            $file->storePubliclyAs('public/photos', $fileName);
+
+            $book->image_url = 'storage/photos' . $fileName;
+            $book->save();
+        }
+
+        return BookResource::make($book);
     }
-
     /**
      * Display the specified resource.
      */
     public function show(Book $book)
     {
-        return Book::make($book);
+        return Book::make($book->loadMissing('bookDetail'));
     }
 
     public function update(BookUpdateRequest $request, Book $book)
@@ -77,7 +91,7 @@ class BookController extends Controller
     public function destroy($id)
     {
         $book = Book::findOrFail($id);
-        
+
         $book->borrowings()->delete();
 
         $book->delete();
