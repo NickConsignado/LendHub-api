@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('author');
             $table->text('subtitle');
             $table->integer('stocks');
-            $table->enum('genre', ['Romance', 'Drama', 'Comedy', 'adventure', 'horror']);
+            $table->enum('genre', ['Romance', 'Drama', 'Comedy', 'Adventure', 'Horror']);
             $table->text('image_url')->nullable();
             $table->timestamps('');
         });
