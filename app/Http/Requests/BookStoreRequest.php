@@ -29,7 +29,7 @@ class BookStoreRequest extends FormRequest
             'subtitle' => 'required',
             'stocks' => 'required',
             'genre' => 'required|in:Romance,Drama,Comedy,Adventure,Horror',
-  
+            'thumbnail' => 'required'
 
         ];
     }

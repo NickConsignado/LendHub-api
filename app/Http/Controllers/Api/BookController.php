@@ -9,6 +9,7 @@ use App\Http\Resources\BookResource;
 use App\Models\Book;
 use Illuminate\Http\Request;
 
+
 class BookController extends Controller
 {
     /**
@@ -42,10 +43,10 @@ class BookController extends Controller
         if ($request->hasFile('thumbnail')) {
             $file = $request->file('thumbnail');
 
-            $fileName = time() . '-' . $file->getClientOriginalFilename();
-            $file->storePubliclyAs('public/photos', $fileName);
+            $fileName = time() . '-' . $file->getClientOriginalName();
+            $file->storePubliclyAs('public/books', $fileName);
 
-            $book->image_url = 'storage/photos' . $fileName;
+            $book->image_url = 'storage/books/' . $fileName;
             $book->save();
         }
 
