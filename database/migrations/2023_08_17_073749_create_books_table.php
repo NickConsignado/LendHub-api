@@ -19,7 +19,7 @@ return new class extends Migration
             $table->integer('stocks');
             $table->enum('genre', ['Romance', 'Drama', 'Comedy', 'Adventure', 'Horror']);
             $table->text('image_url')->nullable();
-            $table->timestamps('');
+            $table->timestamps();
         });
     }
 

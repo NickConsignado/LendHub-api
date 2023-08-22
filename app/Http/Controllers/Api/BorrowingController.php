@@ -37,7 +37,7 @@ class BorrowingController extends Controller
      */
     public function show(Borrowing $borrowing)
     {
-        return Borrowing::make($borrowing);
+        return BorrowingResource::make($borrowing);
     }
 
     public function update(BorrowingUpdateRequest $request, Borrowing $borrowing)

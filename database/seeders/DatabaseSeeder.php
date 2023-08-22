@@ -21,10 +21,8 @@ class DatabaseSeeder extends Seeder
             ->create();
 
         Book::factory(50)
-            ->hasBorrowings()
-            ->create();
-
-        BookDetail::factory(50)
+            ->hasBookDetail()
+            ->hasBorrowings(10)
             ->create();
     }
 }

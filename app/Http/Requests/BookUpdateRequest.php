@@ -29,7 +29,7 @@ class BookUpdateRequest extends FormRequest
             'subtitle' => 'sometimes|required',
             'stocks' => 'sometimes|required',
             'genre' => 'sometimes|required',
-            'imageUrl' => 'sometimes|required',
+
         ];
     }
     protected function failedValidation(Validator $validator)

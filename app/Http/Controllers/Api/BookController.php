@@ -19,10 +19,10 @@ class BookController extends Controller
         $query = Book::query();
 
         if (isset($request->genre)) {
-            $query->where('category', $request->genre);
+            $query->where('genre', $request->genre);
         }
 
-        return BookResource::collection($query->with('bookDetail')->get());
+        return BookResource::collection($query->with('bookDetail')->paginate());
     }
 
     /**
@@ -56,7 +56,7 @@ class BookController extends Controller
      */
     public function show(Book $book)
     {
-        return Book::make($book->loadMissing('bookDetail'));
+        return BookResource::make($book->loadMissing('bookDetail'));
     }
 
     public function update(BookUpdateRequest $request, Book $book)

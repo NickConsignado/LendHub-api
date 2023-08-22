@@ -23,7 +23,7 @@ class BookResource extends JsonResource
             'stocks' => $this->stocks,
             'genre' => $this->genre,
             'imageUrl' => $this->image_url,
-            'bookDetail' => BookDetailResource::collection($this->whenLoaded('bookDetail')),
+            'bookDetail' => BookDetailResource::make($this->whenLoaded('bookDetail')),
         ];
     }
 }

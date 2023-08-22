@@ -39,7 +39,7 @@ class BookDetailController extends Controller
      */
     public function show(BookDetail $bookDetail)
     {
-        return BookDetail::make($bookDetail);
+        return BookDetailResource::make($bookDetail);
     }
 
     /**
