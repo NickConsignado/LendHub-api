@@ -22,7 +22,7 @@ class DatabaseSeeder extends Seeder
 
         Book::factory(50)
             ->hasBookDetail()
-            ->hasBorrowings(10)
+            ->hasBorrowings(1)
             ->create();
     }
 }
