@@ -6,6 +6,7 @@ namespace Database\Seeders;
 
 use App\Models\Book;
 use App\Models\BookDetail;
+use App\Models\Borrowing;
 use App\Models\User;
 use Illuminate\Database\Seeder;
 
@@ -22,7 +23,8 @@ class DatabaseSeeder extends Seeder
 
         Book::factory(50)
             ->hasBookDetail()
-            ->hasBorrowings(1)
+            ->hasBorrowings()
             ->create();
+
     }
 }
